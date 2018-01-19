@@ -1,0 +1,33 @@
+*
+  box-sizing: border-box
+
+body
+  background: lightblue
+
+.loginpage
+  display: flex
+  position: absolute
+  justify-content: center
+  align-items: center
+  top: 40%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 50vw
+  @media screen and (max-width: 600px)
+    width: 80vw
+  height: fit-content
+
+.welcome
+  flex-basis: 50%
+  align-self: flex-start
+
+.signin
+  flex-basis: 50%
+  max-width: 300px
+  padding-left: 3em
+  padding-top: 0
+
+#login-form
+  margin-bottom: 2em
+
+#signup-form
