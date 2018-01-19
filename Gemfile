@@ -39,16 +39,18 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
-gem 'faker'
-gem 'filestack-rails', '~> 3.1.0'
-gem 'kaminari'
-gem 'pg_search'
-gem 'rubocop'
-gem 'rubocop-rspec'
-gem 'simple_form'
-gem 'slim'
+# gem 'faker'
+# gem 'filestack-rails', '~> 3.1.0'
+# gem 'kaminari'
+# gem 'pg_search'
+# gem 'rubocop'
+# gem 'rubocop-rspec'
+# gem 'simple_form'
 gem 'slim-rails'
-
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'jquery-rails'
+gem 'simple_form'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
