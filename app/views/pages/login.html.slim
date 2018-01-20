@@ -6,20 +6,10 @@ div.wrapper-loginpage
       h3.mobilewelcome
         strong DragonTweet
       h5.mobiledescription DragonTweet is the 21st century app that connects fighters with super powers from DragonBall Z. Sign up to challenge other fighters in the universe. Throw your first ki blast today!
-      div.mobilesignin
-        = simple_form_for(resource, as: resource_name, url: session_path(resource_name), defaults: { input_html: { class: 'form-control-sm' } }) do |f|
-          div.mobile-form-inputs
-            = f.input :email, required: true, autofocus: true, placeholder: 'Email', label: false
-            = f.input :password, required: false, placeholder: 'Password', label: false
-            = f.input :remember_me, as: :boolean, wrapper_html: {class: 'mb-0'}, label_html: {class: 'small'} if devise_mapping.rememberable?
-          div.mobile-form-actions
-            = f.button :submit, "Log in", class: 'btn btn-outline mobileloginbtn'
       div.mobilebuttons
-        / = link_to "Log In", new_user_session_path, class: "btn btn-outline mobileloginbtn"
-        / = link_to "Sign Up", new_user_registration_path, class: "btn btn-outline mobilesignupbtn"
-      div.sharedlinks
-        = link_to "Sign Up", new_user_registration_path, class: 'mobilesignup'
-        = render "devise/shared/links"
+        = link_to "Log In", new_user_session_path, class: "btn btn-outline mobileloginbtn"
+        = link_to "Sign Up", new_user_registration_path, class: "btn btn-outline mobilesignupbtn"
+
 
   / Non Mobile Layout
   div.row.loginpage

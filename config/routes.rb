@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :controllers
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root to: redirect('/users/sign_in')

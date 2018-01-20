@@ -101,6 +101,7 @@ body
 
 
 // =========================== Mobile Layout =======================
+//==================================================================
 .mobileloginpage
   width: 100vw
   height: 100vh
@@ -111,22 +112,28 @@ body
 
 .mobilelogin
   width: 70vw
-  height: 100vh
+  // height: 100vh
   display: flex
   flex-direction: column
-  justify-content: center
+  // justify-content: center
   align-items: center
   margin: 0 auto
+  left: 50%
+  top: 55%
+  transform: translate(-50%, -50%)
+  position: absolute
+
 
 .mobilewelcome
-  font-size: 2.5em
+  font-size: 2.2em
   padding-bottom: 0.5em
   margin: 0
 
 .mobiledescription
   font-size: 1rem
-  padding-bottom: 1em
+  padding-bottom: 2em
   margin: 0
+  text-align: center
 
 .mobilebuttons
   display: inline-flex
@@ -145,3 +152,49 @@ body
   width: 6em
   background: white
   border-color: black
+
+.sharedlinks
+  width: fit-content
+  height: fit-content
+  display: inline-block
+  padding-top: 2em
+  text-decoration: none
+  a
+    color: aliceblue
+
+.mobilesignup
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 0 auto
+
+.mobilesignin, .mobile-form-inputs
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: max-content
+  height: fit-content
+
+.mobile-form-actions
+  display: flex
+  justify-content: center
+  align-items: center
+
+.mobilesignup-wrapper.container
+  max-width: 70vw
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+.mobilesignup-wrapper.container
+  @media screen and (min-width: 600px)
+    left: 30%
+    max-width: 30vw
+
+.mobilesignupwrapper
+  width: 100vw
+  height: 100vh
+  background-image: url("loginpage_background.jpg")
+  background-size: cover
+  background-position:  center 0
+  background-repeat: no-repeat
