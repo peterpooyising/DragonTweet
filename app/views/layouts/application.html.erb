@@ -13,9 +13,13 @@
 
   <body>
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+      <div class="notice-wrapper">
+        <p class="notice"><%= notice %></p>
+      </div>
     <% elsif alert %>
-      <p class="alert"><%= alert %></p>
+      <div class="alert-wrapper">
+        <p class="alert"><%= alert %></p>
+      </div>
     <% end %>
     <%= yield %>
   </body>
