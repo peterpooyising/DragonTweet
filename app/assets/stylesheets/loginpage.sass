@@ -9,50 +9,139 @@ body
   height: 100vh
   width: 100vw
 
-.wrapper
+
+.wrapper-loginpage
   height: 100vh
   width: 100vw
   background-image: url("loginpage_background.jpg")
   background-position: center
   background-repeat: no-repeat
   background-size: cover
-
 @media screen and (max-width: 700px)
-  .wrapper
+  .wrapper-loginpage
     background-size: cover
     background-position:  center 0
+
 
 .loginpage
   display: flex
   position: absolute
   justify-content: center
   align-items: center
-  top: 50%
-  left: 50%
+  top: 50vh
+  left: 40vw
   transform: translate(-50%, -50%)
   width: 50vw
   height: fit-content
   font-family: Cinecav Sans
-
-@media screen and (max-width: 700px)
-  .loginpage
-    width: 100vw
-    height: 100vh
-    padding: 0
-    margin: 0
+  a
+    color: black
+// @media screen and (max-width: 700px)
+//   .loginpage
+//     width: 100vw
+//     height: 100vh
+//     padding: 0
+//     margin: 0
+//     display: flex
+//     flex-direction: column
+//     justify-content: center
+//     align-items: center
+//     top: 50vh
+//     left: 50vw
+//     transform: translate(-50%, -50%)
+//     position: absolute
 
 
 .welcome
-  flex-basis: 30%
+  flex-basis: 50%
   align-self: flex-start
+@media screen and (max-width: 700px)
+  .welcome
+    display: none
+  // .welcome
+  //     display: inline-block
+  //     flex-direction: column
+  //     max-width: 50vw
+  //     justify-content: center
+  //     align-items: center
+  //     flex-basis: 0
+  //     align-self: center
+  // .welcomemessage
+  //   font-size: 1.75em
+  // .welcomedescription
+  //   font-size: 1em
+
 
 .signin
-  flex-basis: 30%
+  flex-basis: 50%
   max-width: 300px
   padding-left: 3em
   padding-top: 0
+@media screen and (max-width: 700px)
+  .signin
+    display: none
+  // .signin
+  //   padding-left: 0
+  //   padding-top: 1em
+
 
 #login-form
   margin-bottom: 2em
 
 #signup-form
+
+.nonmobile
+  color: black
+  border-color: black
+  background: white
+
+
+
+
+
+
+// =========================== Mobile Layout =======================
+.mobileloginpage
+  width: 100vw
+  height: 100vh
+@media screen and (min-width: 700px)
+  .mobileloginpage
+    display: none
+
+
+.mobilelogin
+  width: 70vw
+  height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin: 0 auto
+
+.mobilewelcome
+  font-size: 2.5em
+  padding-bottom: 0.5em
+  margin: 0
+
+.mobiledescription
+  font-size: 1rem
+  padding-bottom: 1em
+  margin: 0
+
+.mobilebuttons
+  display: inline-flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+
+.mobileloginbtn, .mobilesignupbtn
+  display: inline-block
+  margin: 0 auto 0.5em
+  color: black
+  text-decoration: none
+  &:last-of-type
+    margin-bottom: 0
+  width: 6em
+  background: white
+  border-color: black
