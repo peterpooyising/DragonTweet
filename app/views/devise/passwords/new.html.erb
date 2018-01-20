@@ -1,15 +1,16 @@
 <div class="containerwrapper">
   <div class="container">
-    <h2>Forgot your password?</h2>
-
+    <div class="passwordtitle">
+      <h2>Forgot your password?</h2>
+    </div>
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email" %>
+      <div class="form-inputs passwordinput">
+        <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Key in your email here." %>
       </div>
 
-      <div class="form-actions">
+      <div class="form-actions passwordbtn">
         <%= f.button :submit, "Send me instructions" %>
       </div>
     <% end %>
