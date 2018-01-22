@@ -1,0 +1,71 @@
+html, body
+  width: 100vw
+  height: 100vh
+
+.container-wrapper-signout
+  width: 100vw
+  height: 100vh
+  background-image: url("signout.png")
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: right center
+
+.container-signout
+  margin-left: 5em
+  height: fit-content
+  width: fit-content
+
+
+.container-signout h2
+  font-size: 2.5rem
+  padding: 5rem 10rem
+  font-family: Cinecav Sans
+
+
+
+@media screen and (max-width: 1400px)
+  .container-wrapper-signout
+    background-position: top center
+    background-size: cover
+    height: 80vh
+
+
+@media screen and (max-width: 1400px)
+  .container-signout
+    position: absolute
+    left: 50%
+    top: 90%
+    transform: translate(-50%, -50%)
+    max-width: 80vw
+    width: 80vw
+    text-align: center
+    margin: auto
+    border: none
+
+@media screen and (max-width: 700px)
+  .container-signout
+    h2
+      padding: 0.5em 1rem
+      font-size: 1.5rem
+
+@media screen and (max-width: 1000px) and (min-width: 700px)
+  .container-signout
+    h2
+      padding: 1em 2rem
+      font-size: 2rem
+
+@media screen and (max-width: 1400px) and (min-width: 1000px)
+  .container-signout
+    h2
+      padding: 1em 2rem
+      font-size: 2.5rem
+
+@media screen and (min-width: 1400px)
+  .container-signout
+    position: absolute
+    left: 0%
+    top: 50%
+    transform: translate(0%, -50%)
+    max-width: 50vw
+    width: 50vw
+    text-align: center

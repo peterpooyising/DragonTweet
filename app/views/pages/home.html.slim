@@ -1,4 +1,4 @@
-div.container-fluid.pages.home
+div.home
   / ================================================== Navbar ===========================================================
   nav class="navbar navbar-expand-lg navbar-light bg-light"
     a class="navbar-brand" href="#" DragonTweet
@@ -24,22 +24,34 @@ div.container-fluid.pages.home
           = link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"nav-link"
 
 
-/ ============================================ Main Body ==================================================================
+  / ============================================ Main Body ==================================================================
 
-/   <div class='row'>
-/     <div class='left-panel col-3 text-center'>
-/       <%= yield(:profile) %>
-/       <%= render 'trending' %>
-/
-/     <div class='content col-6'>
-/       <%= yield(:content) %>
-/
-/     <div class='right-panel col-3'>
-/
-/       <div class='who-to-follow card'>
-/         <h4 class='card-header text-center bg-primary text-white'><strong>Who to follow</strong></h4>
-/         <div class="list-group list-group-flush">
-/           - current_user.not_following.each do |user|
-/           = render partial: 'user', locals: {user: user}
-/
+  div.row
+    div.left-panel.col-3.text-center
+      / = yield(:profile)
+      / = render 'trending'>
+
+    div.content.col-6
+      div.row
+        div.col-12.text-right.mb-3
+          / - if @user == current_user
+          / div.new-tweet-form
+          /   = simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f|
+          /   = f.input_field :body, label: false, placeholder: "What's happening?", class: 'form-control mb-2', maxlength: Tweet::MAX_WORD_COUNT
+          /   div
+          /     span.word-count.mr-1 140
+          /     = f.button :submit, "Tweet", class: 'btn-primary btn-sm'
+
+
+      / = yield(:content)
+
+    div.right-panel.col-3
+
+      div.who-to-follow.card
+        h4.card-header.text-center
+          / strong Who to follow
+        div.list-group.list-group-flush
+          / - current_user.not_following.each do |user|
+          / = render partial: 'user', locals: {user: user}
+
 / = render template: 'layouts/application'
