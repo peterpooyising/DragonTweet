@@ -10,18 +10,43 @@ class User < ApplicationRecord
   # ======================================= Associations ==============================================================
   has_many :tweets, dependent: :destroy
 
-  # Join Table (Following other users)
-  has_many :active_relationships, class_name: "Relationship",
-                                  foreign_key: "follower_id", # follower_id is the ID of the user who clicks on "follow".
-                                  dependent: :destroy
-  has_many :followings, through: :active_relationships, source: :followed # 'following' is Twitter's way of describing people that the user follows.
 
-  # Join Table (Getting Followed)
-  has_many :passive_relationships, class_name: "Relationship",
-                                   foreign_key: "followed_id", # followed_id is the ID of the user who gets followed by other Users.
-                                   dependent: :destroy
-  has_many :followers, through: :passive_relationships, source: :follower
+
+  # ================================================ Relationship ===================================================
+
+  # Definitions
+  # Followee:   a person who is BEING TRACKED on a social media website or application.
+  # Follower:   a person who ACTIVELY TRACKS another person/other people on a social media website or application.
+
+  # Visit https://medium.com/@jbmilgrom/active-record-many-to-many-self-join-table-e0992c27c1e
   # Visit https://www.sitepoint.com/brush-up-your-knowledge-of-rails-associations/
+
+
+  # Usage
+=begin
+  To determine a User’s :followees (upon an @user.followees call), Active Record may now look at each instance of class_name: “Follow” where such User is the follower (i.e. foreign_key: :follower_id) through: such User’s :followee_follows. To determine a User’s :followers (upon an @user.followers call), Active Record may now look at each instance of class_name: “Follow” where such User is the followee (i.e. foreign_key: :followee_id) through: such User’s :follower_follows.
+=end
+
+
+
+  # ======================================== Join Table (Following other users) =======================================
+  # follower_follows "names" the Relationship join table for accessing through the Follower association
+  has_many :follower_follows, foreign_key: :followee_id, class_name: "Relationship", dependent: :destroy # one-to-many relationship. Example: This allows a single user(current_user) to follow other users.
+
+  # source: :follower matches with the belongs_to :follower identification in the Relationship model.
+  has_many :followers, through: :follower_follows, source: :follower  # many-to-many relationship. Example: This allows the User model to have many such single user(current_user) who can follow other users.
+
+
+  # However, at this point it is not a complete 2-way relationship. The follower is linked to the followee but the followee is not linked to the follower. In order to complete the relationship and link the followee to the follower, we need to do the same thing for followee as well.
+
+
+  # ======================================= Join Table (Getting Followed) ================================================
+  # followee_follows "names" the Relationship join table for accessing through the Followee association
+  has_many :followee_follows,  foreign_key: :follower_id, class_name: "Relationship", dependent: :destroy # one-to-many relationship. Same logic as above.
+
+  # source: :followee matches with the belongs_to :followee identification in the Relationship model
+  has_many :followees, through: :followee_follows, source: :followee  # many-to-many relationship. Same logic as above.
+
 
 
 
@@ -38,6 +63,41 @@ class User < ApplicationRecord
 
 Don't add in validations here because Devise already has validations in place for password, email, password confirmation etc. If we add in our own validations in the User model here, it will conflict with Devise's validation. The validations written here will affect the sign up form as well. For example, if we add in password validation here, it will conflict the sign in page because we will also need to ensure that the password is not blank in the sign up form as well.
 =end
+
+  # ======================================= Search Function (pg_search) ===============================================
+
+
+
+
+
+
+
+  # ===================================== Helper Methods ===============================================================
+  def follow(user)
+    return self.followees << user if self.following?(user) == false && self != user
+  end
+
+  def unfollow(user)
+    return self.followees.delete(user)
+  end
+
+  def following?(user)
+    return self.followees.include?(user) # return true or false
+  end
+
+  # Return users that current_user is not following
+  def not_following
+    following_ids = self.followees.ids + [self.id] # need to enclose own ID inside [] in order to join it into the array of other IDs that current_user is following.
+    return User.where.not(id: following_ids)
+  end
+
+  # Return tweets that belong to the people that current_user is following as well as his own tweets.
+  def feed
+    following_ids = self.followees.ids + [self.id]
+    Tweet.where(user_id: following_ids).order(created_at: :desc)
+  end
+
+
 
 
   # ===================================== Facebook Login ============================================================

@@ -63,6 +63,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_bot_rails'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do

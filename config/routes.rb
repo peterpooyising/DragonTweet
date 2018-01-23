@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
 
-
-
-  # ================================= Devise Facebook Login & Overwriting Devise's default routes ======================
+  # Devise Facebook Login & Overwriting Devise's default routes
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks",
     :sessions => "users/sessions"
   }
 
-  # ================================ Redirect after sign in ==========================================================
+  # Redirect after sign in
   authenticated :user do
     root to: 'pages#home', as: :authenticated_root
   end
 
-  # =============================== Root page ========================================================================
+  # Root page
   root to: redirect('/users/sign_in')
 
-
+  # Sign out page
   get '/signout', to: 'pages#signout', as: 'user_signout'
 
-  resources :relationships
+
+  resources :relationships, only: [:create, :destroy]
   resources :tweets, only: [:create, :destroy]
 
   # get 'user/:username/following', to: 'pages#following', as: 'user_following'
