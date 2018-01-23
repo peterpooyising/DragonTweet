@@ -101,3 +101,6 @@ In other words, use the "dependent: :destroy" on the parent with a "has_many" as
 
 
 # methods that end with "?" is a stylistic convention of Ruby telling us that this is going to be a Boolean valued method that is going to return True / False.
+
+
+end

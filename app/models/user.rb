@@ -30,22 +30,20 @@ class User < ApplicationRecord
 
 
   # ======================================== Join Table (Following other users) =======================================
-  # follower_follows "names" the Relationship join table for accessing through the Follower association
-  has_many :follower_follows, foreign_key: :followee_id, class_name: "Relationship", dependent: :destroy # one-to-many relationship. Example: This allows a single user(current_user) to follow other users.
+  has_many :active_relationships, class_name: "Relationship", foreign_key: :follower_id, dependent: :destroy # one-to-many relationship. Example: This allows a single user(current_user) to follow other users.
 
-  # source: :follower matches with the belongs_to :follower identification in the Relationship model.
-  has_many :followers, through: :follower_follows, source: :follower  # many-to-many relationship. Example: This allows the User model to have many such single user(current_user) who can follow other users.
+  has_many :followees, through: :active_relationships  # many-to-many relationship. Example: This allows the User model to have many such single user(current_user) who can follow other users.
 
+
+  # Follows the logic of the Tweet / Tweet_Tag / Tag example. A Tweet has many Tweet_Tags. A Tweet has many Tags through Tweet_Tags.
 
   # However, at this point it is not a complete 2-way relationship. The follower is linked to the followee but the followee is not linked to the follower. In order to complete the relationship and link the followee to the follower, we need to do the same thing for followee as well.
 
 
   # ======================================= Join Table (Getting Followed) ================================================
-  # followee_follows "names" the Relationship join table for accessing through the Followee association
-  has_many :followee_follows,  foreign_key: :follower_id, class_name: "Relationship", dependent: :destroy # one-to-many relationship. Same logic as above.
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: :followee_id, dependent: :destroy # one-to-many relationship. Same logic as above.
 
-  # source: :followee matches with the belongs_to :followee identification in the Relationship model
-  has_many :followees, through: :followee_follows, source: :followee  # many-to-many relationship. Same logic as above.
+  has_many :followers, through: :passive_relationships  # many-to-many relationship. Same logic as above.
 
 
 

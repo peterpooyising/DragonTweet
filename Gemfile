@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
-# gem 'faker'
+gem 'faker'
 # gem 'filestack-rails', '~> 3.1.0'
 # gem 'kaminari'
 # gem 'pg_search'
