@@ -9,7 +9,7 @@ class Tag < ApplicationRecord
   validates :name, presence: true, uniqueness: true # avoid duplicates.
 
 
-  # ============= Search function (pg_search) ================
+  # ========================================= Search function (pg_search) ====================================================
 
 
 

@@ -22,7 +22,7 @@ class User < ApplicationRecord
   # Visit https://www.sitepoint.com/brush-up-your-knowledge-of-rails-associations/
 
 
-  # Usage
+  # Usage (Method 2)
 =begin
   To determine a User’s :followees (upon an @user.followees call), Active Record may now look at each instance of class_name: “Follow” where such User is the follower (i.e. foreign_key: :follower_id) through: such User’s :followee_follows. To determine a User’s :followers (upon an @user.followers call), Active Record may now look at each instance of class_name: “Follow” where such User is the followee (i.e. foreign_key: :followee_id) through: such User’s :follower_follows.
 =end
@@ -45,9 +45,20 @@ class User < ApplicationRecord
 
   has_many :followers, through: :passive_relationships  # many-to-many relationship. Same logic as above.
 
+  # ====================================== Join Table (Method 2) ========================================================
+=begin
 
+  # follower_follows "names" the Relationship join table for accessing through the follower association
+  has_many :follower_follows, foreign_key: :followee_id, class_name: "Relationship"
+  # source: :follower matches with the belongs_to :follower identification in the Relationship model
+  has_many :followers, through: :follower_follows, source: :follower
 
+  # followee_follows "names" the Relationship join table for accessing through the followee association
+  has_many :followee_follows, foreign_key: :follower_id, class_name: "Relationship"
+  # source: :followee matches with the belongs_to :followee identification in the Relationship model
+  has_many: :followees, through: :followee_follows, source: :followee
 
+=end
   # ====================================== Validations ===============================================================
   validates :username, presence: true, uniqueness: true, length: { minimum: 4 } # Because it's a new column we added in ourselves.
 
@@ -70,7 +81,19 @@ Don't add in validations here because Devise already has validations in place fo
 
 
 
+
+
+
+
+
+
   # ===================================== Helper Methods ===============================================================
+=begin
+  @user1 = User.first
+  @user1.followers  : Represents the people that follow @user1
+  @user1.followees  : Represents the people that @user1 is following.
+=end
+
   def follow(user)
     return self.followees << user if self.following?(user) == false && self != user
   end
@@ -78,6 +101,19 @@ Don't add in validations here because Devise already has validations in place fo
   def unfollow(user)
     return self.followees.delete(user)
   end
+=begin
+Difference between using .destroy and .delete
+
+.delete (DELETE)
+Relationship Destroy (0.3ms)  DELETE FROM "relationships" WHERE "relationships"."follower_id" = $1 AND "relationships"."followee_id" = $2  [["follower_id", 1], ["followee_id", 2]]
+
+.destroy (DESTROY)
+Relationship Load (0.3ms)  SELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = $1 AND "relationships"."followee_id" = $2  [["follower_id", 1], ["followee_id", 2]]
+Relationship Destroy (0.3ms)  DELETE FROM "relationships" WHERE "relationships"."id" = $1  [["id", 2]]
+
+.delete destroys both the user and the current_user.
+.destroy only destroys the user.
+=end
 
   def following?(user)
     return self.followees.include?(user) # return true or false

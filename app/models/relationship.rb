@@ -13,3 +13,12 @@ end
   follower & followed are NOT MODEL(S). They are COLUMN(S) in a model. So Rails will not know how to look for them unless we put a "class_name" attribute to specify which model to look into.
 
 =end
+
+
+# ============================================== Method 2 =================================================================
+=begin
+
+  belongs_to :follower, foreign_key: "follower_id", class_name: 'User'
+  belongs_to :followee, foreign_key: "followee_id", class_name: 'User'
+
+=end
