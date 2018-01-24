@@ -1,11 +1,10 @@
 <div class="containerwrapper">
   <div class="container">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+    <h2 class="settings">Settings</h2> <!-- <%# resource_name.to_s.humanize %> -->
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
+      <div class="settings-form-inputs">
         <%= f.input :email, autocomplete: "off", required: true, autofocus: true, label: false, placeholder: "Email" %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -13,19 +12,23 @@
         <%= f.input :username, autocomplete: "off", required: true, label: false, placeholder: "Username" %>
         <%= f.input :password, autocomplete: "off", required: false, label: false, placeholder: "Password", hint: "Leave blank if you do not want to change." %>
         <%= f.input :password_confirmation, required: false, label: false, placeholder: "Password Confirmation", hint: "Leave blank if you do not want to change." %>
+        <%= f.input :jobtitle, autocomplete: "off", required: false, label: false, placeholder: "Job Title" %>
+        <%= f.input :biography, autocomplete: "off", required: false, label: false, placeholder: "Description of yourself", as: :text, input_html: {rows: 5} %>
         <%= f.input :current_password, required: true, label: false, placeholder: "Current Password" %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+        <%= f.button :submit, "Update account", class: "settings-mobile-btn" %>
       </div>
     <% end %>
 
     <div class="cancelaccount">
-      <h3>Cancel my account</h3>
-      <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn" %>
+      <%= link_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn settings-mobile-btn" %>
     </div>
 
-    <%= link_to "Back", :back, class:"btn" %>
+    <div class="settings-back-btn">
+      <%= link_to "Back", :back, class:"btn settings-mobile-btn" %>
+    </div>
+
   </div>
 </div>

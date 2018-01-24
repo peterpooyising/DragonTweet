@@ -70,9 +70,13 @@ ActiveRecord::Schema.define(version: 2018_01_21_102822) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
-    t.string "avatar", default: "default_avatar"
+    t.string "avatar"
+    t.string "jobtitle", default: "Job Title"
+    t.string "biography", default: "Description of yourself."
+    t.string "facebook"
+    t.string "instagram"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
