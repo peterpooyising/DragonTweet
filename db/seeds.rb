@@ -7,23 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # =============================================== Accounts ================================================================
-user_0 = User.create(username: 'Goku', email: 'user0@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Main protagonist of Dragon Ball Z" , avatar: 'http://cdn.playbuzz.com/cdn/d0b128e9-841e-4a54-928c-094123202f85/cd0e575c-440c-45ea-bce8-5950ff1574a5.png')
+user_0 = User.create(username: 'Goku', email: 'goku@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Main protagonist of Dragon Ball Z" , quote: "I am a Saiyan who was raised on Planet Earth and in the name of every single Saiyan that you've made suffer, for them and all the people of Planet Namek too, I will defeat you!", avatar: 'https://cdn.filestackcontent.com/mZVV2uNCQQ2RALyOoEBP')
 
-user_1 = User.create(username: 'Vegeta', email: 'user1@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Saiyan Prince", biography: "Deuteragonist of Dragon Ball Z", avatar: 'https://static.comicvine.com/uploads/original/11130/111304459/5650015-vegeta_by_bardocksonic-d606hr0.png')
+user_1 = User.create(username: 'Vegeta', email: 'vegeta@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Saiyan Prince", biography: "Deuteragonist of Dragon Ball Z", quote: "There's no such thing as fair or unfair in battle. There is only victory, or in your case, defeat.", avatar: 'https://cdn.filestackcontent.com/Dcu0rnITIOjdWJRcxdNw')
 
-user_2 = User.create(username: 'Frieza' , email: 'user2@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Emperor", biography: "Emperor of Universe 7", avatar: 'https://vignette.wikia.nocookie.net/vsbattles/images/7/77/500px-2204548-frieza_final_form.png/revision/latest?cb=20141015231701')
+user_2 = User.create(username: 'Frieza' , email: 'frieza@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Emperor", biography: "Emperor of Universe 7", quote: "I doubt I need an introduction, but just in case, I am the mighty Frieza, and yes, all the horrible stories you've heard are true.", avatar: 'https://cdn.filestackcontent.com/CjBNEMp1SH6hDLp3Nyj6')
 
-user_3 = User.create(username: 'Cell' , email: 'user3@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Bio-Android", biography: "Ultimate creation of an evil scientist", avatar: 'https://vignette.wikia.nocookie.net/villains/images/6/60/Perfection.png/revision/latest?cb=20130929103157')
+user_3 = User.create(username: 'Cell' , email: 'cell@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Bio-Android", biography: "Ultimate creation of an evil scientist", quote: "You see, I'm perfect, my strength is perfect, and with that I shall bring equally perfect destruction through the rest of the universe.", avatar: 'https://cdn.filestackcontent.com/XPGTFhFR1KIaEqgTxA2Q')
 
-user_4 = User.create(username: 'Android 18' , email: 'user4@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Andriod", biography: "Eighteenth android creation of an evil scientist", avatar: 'https://vignette.wikia.nocookie.net/deathbattle/images/3/37/Android_18.png/revision/latest?cb=20170524174351')
+user_4 = User.create(username: 'Android 18' , email: 'andriod18@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Andriod", biography: "Eighteenth android creation of an evil scientist", quote: "Whoever owns these clothes should have their optic sensors adjusted. They are obviously malfunctioning.", avatar: 'https://cdn.filestackcontent.com/W07Eo5cTQyyscxxvwxQn')
 
-user_5 = User.create(username: 'Majin Buu' , email: 'user5@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Agent of Destruction", biography: "Summoning of an evil wizard", avatar: 'https://vignette.wikia.nocookie.net/villains/images/1/17/Super_Buu.png/revision/latest?cb=20130727003604')
+user_5 = User.create(username: 'Majin Buu' , email: 'majinbuu@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Agent of Destruction", biography: "Summoning of an evil wizard", quote: "I'm the terror of the universe.", avatar: 'https://cdn.filestackcontent.com/Hw92yCQTxm9j8ysPo5hq')
 
-user_6 = User.create(username: 'Gohan' , email: 'user6@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Elder son of main protagonist", avatar: 'http://img06.deviantart.net/e27e/i/2017/123/c/d/ultimate_gohan___mystic_gohan_by_aashan-db7zz6v.png')
+user_6 = User.create(username: 'Gohan' , email: 'gohan@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Elder son of main protagonist", quote: "You killed my Dad. And Krillin too. And the others... Because of you, they're gone! I'm going to make you pay for what you did to them!!!", avatar: 'https://cdn.filestackcontent.com/f1KPlLhfQOidvrqDvHPm')
 
-user_7 = User.create(username: 'Trunks' , email: 'user7@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Son of deuteragonist", avatar: 'https://pbs.twimg.com/profile_images/886786124043223041/y5tN-eTH.jpg')
+user_7 = User.create(username: 'Trunks' , email: 'trunks@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Son of deuteragonist", quote: "You hate the fact that you're powerless to stop me, that you're completely outmatched. Well, imagine feeling the way you do now, all of the time like the people of this planet do! Fools, how do you think my master Gohan felt when you ganged up on him in the rain, and HE had no way out? Well, now it's your turn. I hope you enjoy it!", avatar: 'https://cdn.filestackcontent.com/hn9zaX0fSj7jo9KNtqlj')
 
-user_8 = User.create(username: 'Android 19' , email: 'user8@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Andriod", biography: " Nineteenth android creation of an evil scientist", avatar: 'https://pm1.narvii.com/6331/e48e4b12345b6074850706bcc048f14ecad5da69_hq.jpg')
+user_8 = User.create(username: 'Android 19' , email: 'andriod19@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Andriod", biography: " Nineteenth android creation of an evil scientist", quote: "Do not try to escape. Yes, it is useless. Until I have all your energy, I will never let you go.", avatar: 'https://cdn.filestackcontent.com/DQPXEYPPRy2Cr9ojirsI')
+
+
 
 
 

@@ -74,7 +74,8 @@ ActiveRecord::Schema.define(version: 2018_01_21_102822) do
     t.string "encrypted_password", default: "", null: false
     t.string "avatar"
     t.string "jobtitle", default: "Job Title"
-    t.string "biography", default: "Description of yourself."
+    t.text "biography", default: "Description of yourself"
+    t.text "quote", default: "Favourite Quote"
     t.string "facebook"
     t.string "instagram"
     t.string "reset_password_token"

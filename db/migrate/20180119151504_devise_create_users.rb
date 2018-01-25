@@ -10,7 +10,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Filestack (Rails 5.2 has "Content Security Policy". Go to config/initializers/content_security_policy.rb and comment out all the code there or else Filestack picker won't load!)
       t.string :avatar
       t.string :jobtitle, default: "Job Title"
-      t.string :biography,  default: "Description of yourself."
+      t.text :biography,  default: "Description of yourself"
+      t.text :quote, default: "Favourite Quote"
       t.string :facebook
       t.string :instagram
       t.string :email

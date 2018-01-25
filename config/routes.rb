@@ -23,14 +23,16 @@ Rails.application.routes.draw do
   get '/user/:username/tweets', to: 'pages#tweets', as: 'user_tweets'
   get 'tag/:id/tweets', to: 'pages#tweets_by_tag', as: 'tweets_by_tag'
 
+
   put '/update_avatar', to: 'users#update_avatar'
-  post '/follow/:id', to: 'users#follow', as: 'follow'
-  delete '/unfollow/:id', to: 'users#unfollow', as: 'unfollow'
 =begin
   PUT is used for updating an existing resource
   POST is used for creating a new resource
   In rails 4, PUT has been changed to PATCH to avoid confusion.
 =end
+  post '/follow/:id', to: 'users#follow', as: 'follow'
+  delete '/unfollow/:id', to: 'users#unfollow', as: 'unfollow'
+
 
 
   # resources :relationships, only: [:create, :destroy]

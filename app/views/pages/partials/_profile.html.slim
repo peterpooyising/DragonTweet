@@ -38,6 +38,7 @@ div.card
     h2.name = user.username
     h4.job-title = user.jobtitle
     div.bio = user.biography
+    div.quote = " \" #{ user.quote} \" "
     div.social-accounts
       - if current_user == user
         / Do nothing. So Follow/Unfollow button will not show up.
@@ -46,7 +47,7 @@ div.card
           img.facebook src="assets/facebook.png"
         a href="#{user.instagram}"
           img.instagram src="assets/instagram.png"
-        a href="#{user.email}"
+        a href="mailto:#{user.email}"
           img.gmail src="assets/mail.png"
     / ====================================== Follow or Unfollow buttons ===========================================
     - if current_user == user

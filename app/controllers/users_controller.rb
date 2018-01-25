@@ -8,6 +8,41 @@ class UsersController < ApplicationController
     redirect_to authenticated_root_path
   end
 
+  def update_jobtitle
+    @user.update(jobtitle: jobtitle)
+    flash[:notice] = 'Job title updated!'
+    redirect_to authenticated_root_path
+  end
+
+  def update_biography
+    @user.update(biography: biography)
+    flash[:notice] = 'Biography updated!'
+    redirect_to authenticated_root_path
+  end
+
+  def update_quote
+    @user.update(avatar: avatar)
+    flash[:notice] = 'Favourite quote updated!'
+    redirect_to authenticated_root_path
+  end
+
+  def update_facebook
+    @user.update(facebook: facebook)
+    flash[:notice] = 'Facebook account updated!'
+    redirect_to authenticated_root_path
+  end
+
+  def update_instagram
+    @user.update(instagram: instagram)
+    flash[:notice] = 'Instagram account updated!'
+    redirect_to authenticated_root_path
+  end
+
+  def update_email
+    @user.update(email: email)
+    flash[:notice] = 'Email address updated!'
+    redirect_to authenticated_root_path
+  end
 
   private
 

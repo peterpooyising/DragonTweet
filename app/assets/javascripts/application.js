@@ -65,7 +65,7 @@ $(document).on("turbolinks:load", function() {
 });
 
 function updateAvatar(data) {
-  var params = {"avatar_url": data.filesUploaded[0].url };
+  var params = {"avatar": data.filesUploaded[0].url };
   $.ajax({
     url: '/update_avatar',
     method: 'PUT',
