@@ -1,31 +1,3 @@
-/ div.profile.card.mb-3
-/   div.card-body
-/     - if user == current_user
-/       = image_tag(user.avatar, class: 'avatar current-user-avatar')
-/       = filestack_picker_element 'Change avatar', 'updateAvatar', class: 'btn filestack-btn', pickerOptions: { accept: 'image/*', uploadInBackground: false }
-/     - else
-/       = image_tag(user.avatar, class: 'avatar')
-/
-/     h3.card-title
-/       strong = user.username
-/         - if user == current_user
-/         - elsif current_user.followees.exists?(user.id)
-/           object = link_to 'Unfollow', unfollow_path(user), class: 'btn btn-outline-danger btn-sm', method: :delete
-/         - else
-/           object = link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post
-/
-/   div.list-group.list-group-flush
-/     = link_to user_tweets_path(user.username), class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do
-/       h3 Tweets
-/       span.badge.badge-primary.badge-pill.ml-3#user-tweets-count = user.tweets.count
-/     = link_to user_followings_path(user.username), class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do
-/       h3 Following
-/       span.badge.badge-primary.badge-pill = user.followees.count
-/     = link_to user_followers_path(user.username), class: 'list-group-item list-group-item-action d-flex justify-content-around align-items-center' do
-/       h3 Followers
-/       span.badge.badge-primary.badge-pill = user.followers.count
-
-
 div.card
   / Filestack (Rails 5.2 has "Content Security Policy". Go to config/initializers/content_security_policy.rb and comment out all the code there or else Filestack picker won't load!)
   / Note the way to dynamically render background images from database using SLIM below!
