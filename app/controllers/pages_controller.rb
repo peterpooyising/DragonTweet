@@ -4,10 +4,13 @@ class PagesController < ApplicationController
   # Rmb to exlude the "signout" method from "authenticate_user!" method or else the sign out page will not be rendered after user signs out, because the user will have to login again in order to see the sign out page.
 
   # before_action :prepare_user, only: []
-  before_action :prepare_current_user, only: [:home]
+  before_action :prepare_user, only: [:tweets, :following, :follower]
+  before_action :prepare_current_user, only: [:home, :tweets_by_tag]
+
 
   def home
     @tweets = @user.feed
+    tag = Tag
   end
 
   def tweets

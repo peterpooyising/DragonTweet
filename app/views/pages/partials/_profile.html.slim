@@ -10,7 +10,7 @@ div.card
     h2.name = user.username
     h4.job-title = user.jobtitle
     div.bio = user.biography
-    div.quote = " \" #{ user.quote} \" "
+    div.quote = " \"#{ user.quote}\" "
     div.social-accounts
       - if current_user == user
         / Do nothing. So Follow/Unfollow button will not show up.

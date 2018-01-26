@@ -14,7 +14,7 @@ div.home
 
       ul class="navbar-nav ml-auto mt-2 mt-lg-0"
         li class="nav-item"
-          <a class="nav-link" href="#">Home
+          = link_to "Home", authenticated_root_path, method: :get, class: "nav-link"
           / <span class="sr-only">(current)</span></a>
 
         li class="nav-item"
@@ -32,29 +32,42 @@ div.home
   div.mainbody
     / ========================================= Left Panel =================================================================
     div.left-panel.text-center
-      / You will need to use the path from the app/views folder
+      / You will need to use the path from the app/views folder. Rmb to rename partial starting with an underscore "_".
       = render partial: 'pages/partials/profile',  locals: {user: @user}
-      / = render partial: 'pages/partials/profile'
-      / = yield(:profile)
-      / = render 'trending'
+      / = render partial: 'pages/partials/trends'
 
-    div.content.text-right
-      / - if @user == current_user
-      / div.new-tweet-form
-      /   = simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f|
-      /   = f.input_field :body, label: false, placeholder: "What's happening?", class: 'form-control mb-2', maxlength: Tweet::MAX_WORD_COUNT
-      /   div
-      /     span.word-count.mr-1 140
-      /     = f.button :submit, "Tweet", class: 'btn-primary btn-sm'
+    / ======================================== Tweet Box and List of Tweets ===============================================
+    div.content
+      - if @user == current_user
+      div.new-tweet-form
+        = simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f|
+          = f.input_field :content, label: false, placeholder: "Write your tweet here!", class: 'tweet form-control', maxlength: Tweet:: MAX_WORD_COUNT
+          / maxlength: 140 also works. (Using inbuilt HTML input validation, without linking to the Tweet model.) (Not sure which is a better method.)
+          div.tweet-button
+            span.word-count.mr-1 140
+            = f.button :submit, "Tweet", class: 'btn btn-primary btn-sm'
 
+      - if @tweets.empty?
+        p.medium style="padding-top: 2em; padding-left: 2em; font-style: italic" No tweets found.
+
+      / ================================== Pagination =======================================
+      / = link_to_next_page @tweets, 'Next', remote: true, id: 'next-page-link', hidden: true
+
+      / ================================ List of Tweets =====================================
+      ul class="tweets list-group"
+        - @tweets.each do |tweet|
+          = render partial: 'tweets/tweets', locals: {tweet: tweet}
 
       / = yield(:content)
 
+    / ==================================== Right Panel ====================================================================
     div.right-panel
       div.who-to-follow.card
         h4.card-header.who-to-follow.text-center
-          / strong Who to follow
+          strong Who to follow
         div.list-group.list-group-flush
+          - current_user.not_following.each do |user|
+            = render partial: 'pages/partials/who_to_follow', locals: {user: user}
           / - current_user.not_following.each do |user|
           / = render partial: 'user', locals: {user: user}
 

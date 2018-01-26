@@ -12,7 +12,7 @@
   html, body, .registration.containerwrapper, .registration.container
     height: fit-content
   .registration.containerwrapper
-    padding: 9em 0 5em
+    padding: 5em 0 5em
     margin: 0
   .registration.container
     position: static
@@ -20,3 +20,18 @@
     transform: none
     margin: 0
     margin-left: 15vw
+
+.registration.containerwrapper
+  background-image: url('/assets/settings.png')
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center
+
+@media screen and (max-width: 600px)
+  .registration.containerwrapper
+    background-position: bottom
+    padding: 4em 0 4em
+
+@media screen and (max-width: 1300px) and (min-width: 600px)
+  .registration.containerwrapper
+    position: relative

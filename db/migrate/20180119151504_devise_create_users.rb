@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.text :quote, default: "Favourite Quote"
       t.string :facebook
       t.string :instagram
-      t.string :email
+
 
       ## Recoverable
       t.string   :reset_password_token

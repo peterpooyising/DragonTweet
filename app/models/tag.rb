@@ -9,7 +9,7 @@ class Tag < ApplicationRecord
   validates :name, presence: true, uniqueness: true # avoid duplicates.
 
 
-  # ========================================= Search function (pg_search) ====================================================
+  # ========================================= Search function (pg_search) ==================================================
 
 
 
@@ -22,11 +22,13 @@ class Tag < ApplicationRecord
   # =========================================== Helper methods ===========================================================
   # Return the top 10 tags with the most number of tweets.
 
+  # Class method (denoted by "self" in the method name)
   def self.top_10
-    tag_ids = TweetTag.group(:tag_id).order('count_all DESC').limit(10).count.keys
+    tag_ids = TweetTag.group(:tag_id).order('count_all desc').limit(10).count.keys
     self.find(tags_ids)
   end
 
+end
   # Watch: https://www.youtube.com/watch?v=s0KTEtVQ_AY
 
   # TweetTag.group(:tag_id)    ->   Group all tweettags according to the the ID of the TAGS. So if tweettags have the same TAG ID, group them together.
@@ -101,6 +103,3 @@ In other words, use the "dependent: :destroy" on the parent with a "has_many" as
 
 
 # methods that end with "?" is a stylistic convention of Ruby telling us that this is going to be a Boolean valued method that is going to return True / False.
-
-
-end

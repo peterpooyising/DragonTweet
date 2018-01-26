@@ -1,0 +1,88 @@
+@media screen and (max-width: 600px)
+  .tweet.form-control
+    padding-bottom: 5em
+
+
+.list-group-item
+  padding: 0 !important
+
+// @media screen and (max-width: 600px)
+//   .list-group-item
+//     display: flex
+//     flex-direction: row
+//     height: 200px !important
+//
+// @media screen and (max-width: 600px)
+//   .tweet-avatar
+//     flex-basis: 10%
+//     height: inherit
+//     width: 150px !important
+
+// ===================================== Mobile Layout =================================================================
+@media screen and (max-width: 700px)
+  .list-group-item
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    height: 175px
+
+// =================================== Tablet Layout (to be continued) ==================================================
+// @media screen and (max-width: 1300px) and (min-width: 700px)
+//   .list-group-item
+//     display: flex
+//     flex-direction: row
+//     align-items: center
+//
+//     height: 300px
+
+// =================================== Desktop Layout ===================================================================
+@media screen and (min-width: 1300px)
+  .list-group-item
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    height: 125px
+
+
+
+
+.tweet-avatar
+  flex-basis: 10%
+  height: 100%
+  width: 100px
+
+.tweet-info
+  flex-basis: 80%
+  height: fit-content
+  padding: 1em 1em
+  a
+    text-decoration: none
+
+.tweet-name-and-date
+  display: flex
+  align-items: center
+
+.tweet-created
+  padding-left: 1em
+  font-size: 12px
+  font-style: italic
+
+.tweet-content
+  word-break: break-all
+  height: fit-content
+  margin: 0
+
+
+.tweet-delete
+  flex-basis: 10%
+  height: 100%
+  display: flex
+  position: relative
+
+
+.deletebtn
+  position: absolute
+  top: 10%
+  right: 50%

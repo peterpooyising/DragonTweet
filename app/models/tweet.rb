@@ -6,6 +6,8 @@ class Tweet < ApplicationRecord
 
   validates :content, presence: true, length: { maximum: 140 } # maximum tweet length of 140 CHARACTERS not WORDS!
 
+  MAX_WORD_COUNT = 140
+
   # ===================================== Search function (pg_search) ==================================================
 
 

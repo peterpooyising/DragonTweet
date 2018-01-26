@@ -1,0 +1,35 @@
+= render partial: "/pages/partials/navigationbar"
+
+div.registration.containerwrapper
+  div.registration.container
+    / = resource_name.to_s.humanize (this line of code will tweak an attribute name for display to end users, https://apidock.com/rails/ActiveSupport/Inflector/humanize)
+    h2.settings Settings
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+
+      div.settings-form-inputs
+        = f.input :email, autocomplete: "off", required: true, autofocus: true, label: false, placeholder: "Email"
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          p Currently waiting confirmation for: = resource.unconfirmed_email
+        = f.input :username, autocomplete: "off", required: true, label: false, placeholder: "Username"
+        = f.input :password, autocomplete: "off", required: false, label: false, placeholder: "Password", hint: "Leave blank if you do not want to change."
+        = f.input :password_confirmation, required: false, label: false, placeholder: "Password Confirmation", hint: "Leave blank if you do not want to change."
+        = f.input :jobtitle, autocomplete: "off", required: false, label: false, placeholder: "Job Title"
+
+        / ========================================= Text fields ====================================================
+        = f.input :biography, autocomplete: "off", required: false, label: false, placeholder: "Description of yourself", as: :text, input_html: {rows: 3}
+        = f.input :quote, autocomplete: "off", required: false, label: false, placeholder: "Favourite Quote", as: :text, input_html: {rows: 3}
+
+        = f.input :facebook, autocomplete: "off", required: false, label: false, placeholder: "Facebook Account URL"
+        = f.input :instagram, autocomplete: "off", required: false, label: false, placeholder: "Instagram Account URL"
+        / = f.input :email, autocomplete: "off", required: false, label: false, placeholder: "Email Address"
+        = f.input :current_password, required: true, label: false, placeholder: "Current Password"
+
+      div.form-actions
+        = f.button :submit, "Update account", class: "settings-mobile-btn"
+
+    div.cancelaccount
+      = link_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn settings-mobile-btn"
+
+    / div.settings-back-btn
+    /   = link_to "Back", :back, class:"btn settings-mobile-btn"

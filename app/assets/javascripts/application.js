@@ -56,13 +56,14 @@ $(document).on("turbolinks:load", function() {
   });
 
   // Hide flash banner
-  setTimeout(function() {
-    $('.flash-banner p').animate({
-      height: "toggle"
-    }, 1000);
-  }, 3000);
+  // setTimeout(function() {
+  //   $('.flash-banner p').animate({
+  //     height: "toggle"
+  //   }, 1000);
+  // }, 3000);
 
 });
+// ================================== End of on turbolinks:load Javascripts ================================================
 
 function updateAvatar(data) {
   var params = {"avatar": data.filesUploaded[0].url };
