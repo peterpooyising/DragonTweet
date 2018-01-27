@@ -1,0 +1,14 @@
+- content_for :profile do
+  = render partial: 'pages/partials/profile', locals: {user: @user}
+
+- content_for :content do
+  - if @followees.empty?
+    p.medium style="padding-top: 2em; padding-left: 2em; font-style: italic" No followings found.
+
+  / ============================================ Pagination ============================================================
+  / = link_to_next_page @tweets, 'Next', remote: true, id: 'next-page-link', hidden: true
+
+  / =========================================== List of Followings =========================================================
+  ul.followings.list-group
+    - @followees.each do |user|
+      = render partial: 'pages/partials/users', locals: {user: user}

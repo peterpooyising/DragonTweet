@@ -16,20 +16,20 @@ div.card
         / Do nothing. So Follow/Unfollow button will not show up.
       - else
         a href="#{user.facebook}"
-          img.facebook src="assets/facebook.png"
+          img.facebook src="/assets/facebook.png"
         a href="#{user.instagram}"
-          img.instagram src="assets/instagram.png"
+          img.instagram src="/assets/instagram.png"
         a href="mailto:#{user.email}"
-          img.gmail src="assets/mail.png"
+          img.gmail src="/assets/mail.png"
     / ====================================== Follow or Unfollow buttons ===========================================
     - if current_user == user
         / Do nothing. So Follow/Unfollow button will not show up.
     - elsif current_user.followees.exists?(user.id)
-        div.follow-btn
-          = link_to 'Follow', unfollow_path(user), class: 'btn follow', method: :post
-    - else
         div.unfollow-btn
           = link_to 'Unfollow', unfollow_path(user), class: 'btn unfollow', method: :delete
+    - else
+        div.follow-btn
+          = link_to 'Follow', follow_path(user), class: 'btn follow', method: :post
 
   div.card-footer
     div.stats
