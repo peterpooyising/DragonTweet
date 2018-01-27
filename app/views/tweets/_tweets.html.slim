@@ -5,7 +5,7 @@ div.list-group-item
   div.tweet-info
     div.tweet-name-and-date
       object.tweet-username
-        strong = link_to tweet.user.username, user_tweets_path(tweet.user.username)
+        = link_to tweet.user.username, user_tweets_path(tweet.user.username)
       object.tweet-created
         = distance_of_time_in_words_to_now(tweet.created_at)
       / go to tweets_helper.rb to look for the "tagify_tweet" helper method.

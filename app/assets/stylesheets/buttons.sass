@@ -3,6 +3,7 @@
   color: white !important
   background-color: #0069d9 !important
   border-color: #0062cc !important
+  outline: none !important
 
 .tweet-button
   display: flex
@@ -11,3 +12,26 @@
   align-items: center
   .characters
     margin-right: 0.5em
+
+.user-follow
+  border-color: black
+  color: black
+  // &:hover, &:focus
+  //   background-color: black !important
+  //   color: white !important
+  //   border-color: black !important
+
+.user-unfollow
+  border-color: #E31B6D
+  color: #E31B6D
+  &:hover, &:focus
+    background-color: #E31B6D !important
+    color: white !important
+    border-color: #E31B6D !important
+
+.btn.unfollow
+  border: none
+
+.btn.unfollow:hover, .btn.unfollow:focus
+  background-color: crimson !important
+  border: none !important

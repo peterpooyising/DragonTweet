@@ -7,57 +7,69 @@
 
 
 - content_for :post_login do
+  - unless action_name == "tutorial"
+    div.home
+      / ================================================== Navbar ===========================================================
+      nav class="navbar navbar-expand-lg navbar-light bg-light"
+        a class="navbar-brand" href="#" DragonTweet
+        button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+          span class="navbar-toggler-icon"
 
-  div.home
-    / ================================================== Navbar ===========================================================
-    nav class="navbar navbar-expand-lg navbar-light bg-light"
-      a class="navbar-brand" href="#" DragonTweet
-      button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
-        span class="navbar-toggler-icon"
+        div class="collapse navbar-collapse" id="navbarTogglerDemo02"
 
-      div class="collapse navbar-collapse" id="navbarTogglerDemo02"
+          form class="form-inline my-2 my-lg-0"
+            input class="search form-control" type="search" placeholder="Search for users, tweets or tags here!"
+            button class="search btn btn-outline-success my-2 my-sm-0" type="submit" Search
 
-        form class="form-inline my-2 my-lg-0"
-          input class="search form-control" type="search" placeholder="Search for users, tweets or tags here!"
-          button class="search btn btn-outline-success my-2 my-sm-0" type="submit" Search
+          ul class="navbar-nav ml-auto mt-2 mt-lg-0"
+            li class="nav-item"
+              = link_to "Home", authenticated_root_path, method: :get, class: "nav-link"
+              / <span class="sr-only">(current)</span></a>
 
-        ul class="navbar-nav ml-auto mt-2 mt-lg-0"
-          li class="nav-item"
-            = link_to "Home", authenticated_root_path, method: :get, class: "nav-link"
-            / <span class="sr-only">(current)</span></a>
+            li class="nav-item"
+              = link_to "Tutorial", tutorial_path, method: :get, class: "nav-link"
 
-          li class="nav-item"
-            <a class="nav-link" href="#">Tutorial
+            li class="nav-item"
+              = link_to "Settings", edit_user_registration_path, method: :get, class: "nav-link"
 
-          li class="nav-item"
-            = link_to "Settings", edit_user_registration_path, method: :get, class: "nav-link"
+            li class="nav-item"
+              = link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"nav-link"
 
-          li class="nav-item"
-            = link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"nav-link"
-
-    / =========================================== Main Body ==================================================================
-    div.mainbody
-      / ========================================= Left Panel =================================================================
-      div.left-panel.text-center
-        / You will need to use the path from the app/views folder. Rmb to rename partial starting with an underscore "_".
-        = yield(:profile)
-        / = render partial: 'pages/partials/trends'
-      / ======================================== Tweet Box and List of Tweets ===============================================
-      div.content
-        = yield(:content)
-      / =========================================== Right Panel =============================================================
-      div.right-panel
-        div.who-to-follow.card
-          h4.card-header.who-to-follow.text-center
-            strong Who to follow
-          div.list-group.list-group-flush
-            - current_user.not_following.each do |user|
-              = render partial: 'pages/partials/users', locals: {user: user}
-            / - current_user.not_following.each do |user|
-            / = render partial: 'user', locals: {user: user}
+      / =========================================== Main Body ==================================================================
+      div.mainbody
+        / ========================================= Left Panel ===============================================================
+        div.left-panel.text-center
+          / You will need to use the path from the app/views folder. Rmb to rename partial starting with an underscore "_".
+          = yield(:profile)
+          = render partial: 'pages/partials/trends'
+        / ======================================== Tweet Box and List of Tweets ==============================================
+        div.content
+          = yield(:content)
+        / =========================================== Right Panel ============================================================
+        div.right-panel
+          - if current_user.not_following.empty?
+          - else
+            div.who-to-follow.card
+              h4.card-header.who-to-follow.text-center Who to follow
+              div.list-group.list-group-flush
+                - current_user.not_following.each do |user|
+                  = render partial: 'pages/partials/users', locals: {user: user}
+                / - current_user.not_following.each do |user|
+                / = render partial: 'user', locals: {user: user}
 / ========================================== End of Post Login content ======================================================
 
 
 / ================================= IMPORTANT (link back to application.html.erb) ===========================================
 / Need this line of code below in order to link back to application.html.erb which will then render the correct layout for us. If we don't put this line of code, our screen is blank because content_for doesn't render anything to the screen, it only captures the things we want to render to our screen. We need the "yield" statement to render stuffs to our screen.
 = render template: 'layouts/application'
+
+/ ============================================ Note (VALIDATIONS) ===========================================================
+/ <% unless controller_name == "landing" %>
+/   ... Your code ...
+/ <% end %>
+/ will only run your code for a specific controller name.
+
+/ <% unless action_name == "landing" %>
+/   ... Your code ...
+/ <% end %>
+/ will only run your code for a specific controller ACTION name.

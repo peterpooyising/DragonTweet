@@ -21,27 +21,27 @@
 $(document).on("turbolinks:load", function() {
 
   // For toggling profile list-group-item
-  switch (location.pathname.substr(1)) {
-    case 'my_tweets':
-    $("a[href='/my_tweets']").addClass('active');
-    $("a[href='/my_tweets'] span").removeClass('badge-primary').addClass('badge-light');
-    break;
-    case 'following':
-    $("a[href='/following']").addClass('active');
-    $("a[href='/following'] span").removeClass('badge-primary').addClass('badge-light');
-    break;
-    case 'follower':
-    $("a[href='/follower']").addClass('active');
-    $("a[href='/follower'] span").removeClass('badge-primary').addClass('badge-light');
-    break;
-  }
+  // switch (location.pathname.substr(1)) {
+  //   case 'my_tweets':
+  //   $("a[href='/my_tweets']").addClass('active');
+  //   $("a[href='/my_tweets'] span").removeClass('badge-primary').addClass('badge-light');
+  //   break;
+  //   case 'following':
+  //   $("a[href='/following']").addClass('active');
+  //   $("a[href='/following'] span").removeClass('badge-primary').addClass('badge-light');
+  //   break;
+  //   case 'follower':
+  //   $("a[href='/follower']").addClass('active');
+  //   $("a[href='/follower'] span").removeClass('badge-primary').addClass('badge-light');
+  //   break;
+  // }
 
   // For toggling new tweet submit button and calculating word count
   const MAX_WORD_COUNT = 140;
 
   $('.new-tweet-form .btn').attr('disabled', true);
   $('.new-tweet-form textarea').on('input change', function() {
-    
+
     $('.word-count').text(MAX_WORD_COUNT - $(this).val().length);
 
     if($(this).val().length == 0) {
@@ -52,12 +52,6 @@ $(document).on("turbolinks:load", function() {
     return ($('.word-count').innerHTML && $('.characters').innerHTML)
   });
 
-
-  // $('.new-tweet-form textarea').on('input change', function() {
-  //   $('.characters').text('characters remaining.')
-  // });
-
-  // $('.characters').text('characters remaining.')
 
   // Link avatar to filestack btn
   $('.card-header.profile').click(function() {

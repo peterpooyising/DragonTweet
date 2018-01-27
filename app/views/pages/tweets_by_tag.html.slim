@@ -1,0 +1,11 @@
+- content_for :profile do
+ = render partial: 'pages/partials/profile', locals: {user: @user}
+
+- content_for :content do
+  small
+    em Displaying tweets with tag
+      = link_to "#{@tag.name}", tweets_by_tag_path(tag_id)
+
+  ul.tweets.list-group.mt-1
+    - @tweets.each do |tweet|
+      = render partial: 'tweets/tweets', locals: {tweet: tweet}

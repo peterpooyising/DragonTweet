@@ -25,11 +25,11 @@ div.card
     - if current_user == user
         / Do nothing. So Follow/Unfollow button will not show up.
     - elsif current_user.followees.exists?(user.id)
-        div.unfollow-btn
+        div.unfollow-btn.
           = link_to 'Unfollow', unfollow_path(user), class: 'btn unfollow', method: :delete
     - else
         div.follow-btn
-          = link_to 'Follow', follow_path(user), class: 'btn follow', method: :post
+          = link_to 'Follow', follow_path(user), class: 'btn follow bg-primary', method: :post
 
   div.card-footer
     div.stats

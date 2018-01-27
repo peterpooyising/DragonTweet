@@ -40,6 +40,11 @@ class PagesController < ApplicationController
   def search
   end
 
+  def tutorial
+    @tutorial = true
+    # this method is just to render the tutorial page only
+  end
+
   def signout
     # this method is just to render sign out page only
   end
@@ -54,5 +59,7 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def prepare_search_term
+  end
 
 end

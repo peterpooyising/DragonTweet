@@ -1,13 +1,15 @@
 = link_to user_tweets_path(user.username), class: 'list-group-item list-group-item-action d-flex justify-content-between align-items-center border-0'
-
-  div.bar
-    / = image_tag user.avatar, size: '30', class: 'rounded-circle'
-    / = link_to image_tag(tweet.user.avatar, class: "tweet-avatar"), user_tweets_path(tweet.user.username), class: "tweet-avatar"
+  / = image_tag user.avatar, size: '30', class: 'rounded-circle'
+  / = link_to image_tag(tweet.user.avatar, class: "tweet-avatar"), user_tweets_path(tweet.user.username), class: "tweet-avatar"
+  - if user.avatar?
     img src="#{user.avatar}" class="tweet-avatar"
-    = user.username
+    span.user-username = user.username
+  - else
+    img src="#{user.avatar}" class="tweet-avatar"
+    span.user-username = user.username
 
   - if user == current_user
   - elsif current_user.followees.exists?(user.id)
-    object = link_to 'Unfollow', unfollow_path(user), class: 'btn btn-outline-danger btn-sm', method: :delete
+    object = link_to 'Unfollow', unfollow_path(user), class: 'user-unfollow btn btn-outline-danger btn-sm', method: :delete
   - else
-    object = link_to 'Follow', follow_path(user), class: 'btn btn-outline-primary btn-sm', method: :post
+    object = link_to 'Follow', follow_path(user), class: 'user-follow btn btn-outline-primary btn-sm', method: :post

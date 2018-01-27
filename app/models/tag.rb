@@ -21,11 +21,10 @@ class Tag < ApplicationRecord
 
   # =========================================== Helper methods ===========================================================
   # Return the top 10 tags with the most number of tweets.
-
-  # Class method (denoted by "self" in the method name)
+  # This is a Class method (denoted by "self" in the method name)
   def self.top_10
-    tag_ids = TweetTag.group(:tag_id).order('count_all desc').limit(10).count.keys
-    self.find(tags_ids)
+    tag_ids = TweetTag.group(:tag_id).order('count_all desc').limit(10).count.keys # need to append "_id" because we are searching to the ID column, if not (:tag) is invalid because there's no such column in the "tag" table. This is necessary because the find method searches according to the ID given.
+    self.find(tag_ids)
   end
 
 end

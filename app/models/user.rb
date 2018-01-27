@@ -104,8 +104,10 @@ Don't add in validations here because Devise already has validations in place fo
   end
 
   def unfollow(user)
-    return self.followees.delete(user)
+    return self.followees.destroy(user)
   end
+
+
 =begin
 Difference between using .destroy and .delete
 

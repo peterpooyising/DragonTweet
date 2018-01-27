@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    @user.follow(@followee) # @followee : the person whom current_user is tracking.
+    @user.unfollow(@followee) # @followee : the person whom current_user is tracking.
     # Followee:   a person who is BEING TRACKED on a social media website or application.
     flash[:notice] = "You unfollowed " + @followee.username + " !"
     redirect_back fallback_location: authenticated_root_path

@@ -12,7 +12,7 @@
       / maxlength: 140 also works. (Using inbuilt HTML input validation, without linking to the Tweet model.) (Not sure which is a better method.)
       div.tweet-button
         span.word-count 140
-        span.characters characters remaining.
+        span.characters &nbsp;characters remaining.
         = f.button :submit, "Tweet", class: 'btn btn-primary btn-sm'
 
   - if @tweets.empty?
