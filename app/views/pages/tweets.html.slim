@@ -1,0 +1,10 @@
+= render partial: 'pages/partials/profile', locals: {user: @user}
+
+- if @tweets.empty?
+  p.small 'No tweets found.'
+
+/ = link_to_next_page @tweets, 'Next', remote: true, id: 'next-page-link', hidden: true
+
+ul class="tweets list-group"
+  - @tweets.each do |tweet|
+    = render partial: 'tweets/tweets', locals: {tweet: tweet}

@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <!-- Devise Flash Messages -->
     <% if notice %>
       <div class="notice-wrapper">
         <p class="notice"><%= notice %></p>
@@ -21,6 +22,17 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
-    <%= yield %>
+
+    <!-- Pre Login / Post Login yield -->
+    <%= content_for?(:post_login) ? yield(:post_login) : yield %>
+    <!--
+==================================== Documentation on "content_for?" =========================================================
+content_for?(name) public
+content_for? checks whether any content has been captured yet using `content_for`. Useful to render parts of your layout differently based on what is in your views.
+https://apidock.com/rails/ActionView/Helpers/CaptureHelper/content_for%3F
+    -->
+
+    <%# yield %>
+
   </body>
 </html>

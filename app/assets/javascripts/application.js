@@ -38,8 +38,10 @@ $(document).on("turbolinks:load", function() {
 
   // For toggling new tweet submit button and calculating word count
   const MAX_WORD_COUNT = 140;
+
   $('.new-tweet-form .btn').attr('disabled', true);
   $('.new-tweet-form textarea').on('input change', function() {
+    
     $('.word-count').text(MAX_WORD_COUNT - $(this).val().length);
 
     if($(this).val().length == 0) {
@@ -47,8 +49,15 @@ $(document).on("turbolinks:load", function() {
     } else {
       $('.new-tweet-form .btn').attr('disabled', false);
     }
-
+    return ($('.word-count').innerHTML && $('.characters').innerHTML)
   });
+
+
+  // $('.new-tweet-form textarea').on('input change', function() {
+  //   $('.characters').text('characters remaining.')
+  // });
+
+  // $('.characters').text('characters remaining.')
 
   // Link avatar to filestack btn
   $('.card-header.profile').click(function() {

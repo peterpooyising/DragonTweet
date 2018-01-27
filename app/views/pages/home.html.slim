@@ -9,7 +9,7 @@ div.home
     div class="collapse navbar-collapse" id="navbarTogglerDemo02"
 
       form class="form-inline my-2 my-lg-0"
-        input class="search form-control" type="search" placeholder="Search"
+        input class="search form-control" type="search" placeholder="Search for users, tweets or tags here!"
         button class="search btn btn-outline-success my-2 my-sm-0" type="submit" Search
 
       ul class="navbar-nav ml-auto mt-2 mt-lg-0"
@@ -44,7 +44,8 @@ div.home
           = f.input_field :content, label: false, placeholder: "Write your tweet here!", class: 'tweet form-control', maxlength: Tweet:: MAX_WORD_COUNT
           / maxlength: 140 also works. (Using inbuilt HTML input validation, without linking to the Tweet model.) (Not sure which is a better method.)
           div.tweet-button
-            span.word-count.mr-1 140
+            span.word-count 140
+            span.characters characters remaining.
             = f.button :submit, "Tweet", class: 'btn btn-primary btn-sm'
 
       - if @tweets.empty?
