@@ -79,18 +79,10 @@ Don't add in validations here because Devise already has validations in place fo
 =end
 
   # ======================================= Search Function (pg_search) ===============================================
-
-
-
-
-
-
-
-
-
-
-
-
+  include PgSearch
+  pg_search_scope :search,
+                  against: :username,
+                  using: { trigram: { threshold: 0.1 } }
 
   # ===================================== Helper Methods ===============================================================
 =begin

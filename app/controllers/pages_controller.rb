@@ -5,15 +5,16 @@ class PagesController < ApplicationController
 
   before_action :prepare_user, only: [:tweets, :followings, :followers]
   before_action :prepare_current_user, only: [:home, :tweets_by_tag]
+  before_action :prepare_search_term, only: [:search]
 
   # This is the current_user HOME page. It will show the tweets of the all the users that current_user follow as well as his own tweet.
   def home
-    @tweets = @user.feed
+    @tweets = @user.feed.paginate(:page => params[:page], :per_page => 5)
   end
 
   # This is the page of all other USER. It will show the tweets of the particular user that current_user clicked on only.
   def tweets
-    @tweets = @user.tweets.order(created_at: :desc) # order OWN tweets according to when they were created, with the most recent tweet at the top.
+    @tweets = @user.tweets.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5) # order OWN tweets according to when they were created, with the most recent tweet at the top.
     respond_to do |format|
       format.html
       format.js
@@ -38,6 +39,9 @@ class PagesController < ApplicationController
 
   # ==================================== To be continued ==============================================================
   def search
+    @users = User.search(@search_term)
+    @tweets = Tweet.search(@search_term)
+    @tags = Tag.search(@search_term)
   end
 
   def signout
@@ -55,6 +59,7 @@ class PagesController < ApplicationController
   end
 
   def prepare_search_term
+    @search_term = params[:search]
   end
 
 end

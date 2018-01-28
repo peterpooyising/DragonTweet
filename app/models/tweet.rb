@@ -8,19 +8,19 @@ class Tweet < ApplicationRecord
 
   MAX_WORD_COUNT = 140
 
+  # ====================================== Pagination (will_paginate) =================================================
+
   # ===================================== Search function (pg_search) ==================================================
-
-
-
-
-
-
-
-
-
-
-
-
+  # pg_search_scope :search,
+  #                 against: :body,
+  #                 using: {
+  #                   tsearch: {prefix: true}
+  #                 }
+  include PgSearch
+  pg_search_scope :search,
+                  against: :content,
+                  using: { trigram: { threshold: 0.03 } }
+                  
   # ======================================= Helper Methods ============================================================
   # Return all tags in tweet in array format
   def scan_tags

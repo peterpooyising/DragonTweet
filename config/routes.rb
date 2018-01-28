@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   post '/follow/:id', to: 'users#follow', as: 'follow'
   delete '/unfollow/:id', to: 'users#unfollow', as: 'unfollow'
 
-
+  get 'search', to: 'pages#search'
 
   # resources :relationships, only: [:create, :destroy]
   resources :tweets, only: [:create, :destroy]

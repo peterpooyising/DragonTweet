@@ -10,7 +10,10 @@ class Tag < ApplicationRecord
 
 
   # ========================================= Search function (pg_search) ==================================================
-
+  include PgSearch
+  pg_search_scope :search,
+                  against: :name,
+                  using: { trigram: { threshold: 0.1 } }
 
 
 

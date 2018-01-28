@@ -1,0 +1,35 @@
+- content_for :content do
+
+  ul.nav.nav-pills.mb-3 id="pills-tab" role="tablist"
+    li.nav-item
+      a.nav-link.active id="pills-user-tab" data-toggle="pill" href="#pills-user" role="tab" aria-controls="pills-user" aria-selected="true" Users
+    li.nav-item
+      a.nav-link id="pills-tweet-tab" data-toggle="pill" href="#pills-tweet" role="tab" aria-controls="pills-tweet" aria-selected="false" Tweets
+    li.nav-item
+      a.nav-link id="pills-tag-tab" data-toggle="pill" href="#pills-tag" role="tab" aria-controls="pills-tag" aria-selected="false" Tags
+
+  div.tab-content id="pills-tabContent"
+    div.tab-pane.fade.show.active id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab"
+      - if @users.empty?
+        = content_tag :em, 'No users found.', class: 'small'
+      - else
+        div.list-group
+          - @users.each do |user|
+            = render partial: 'user', locals: {user: user}
+
+    div.tab-pane.fade id="pills-tweet" role="tabpanel" aria-labelledby="pills-tweet-tab"
+      - if @tweets.empty?
+        = content_tag :em, 'No tweets found.', class: 'small'
+      - else
+        ul.tweets.list-group
+          - @tweets.each do |tweet|
+            = render partial: 'tweets/tweet', locals: {tweet: tweet}
+
+    div.tab-pane.fade id="pills-tag" role="tabpanel" aria-labelledby="pills-tag-tab"
+      - if @tags.empty?
+        = content_tag :em, 'No tags found.', class: 'small'
+      - else
+        div.card
+          div.card-body
+            - @tags.each do |tag|
+              = link_to tag.body, tweets_by_tag_path(tag) &nbsp;
