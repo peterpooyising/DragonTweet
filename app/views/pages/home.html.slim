@@ -6,16 +6,15 @@
 - content_for :content do
   / ======================================== Tweet Box and List of Tweets ===============================================
   - if @user == current_user
-
-  h4.card-header.text-center style="border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem" Write tweet
-  div.new-tweet-form
-    = simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f|
-      = f.input_field :content, label: false, placeholder: "Write your tweet here!", class: 'tweet form-control', maxlength: Tweet:: MAX_WORD_COUNT
-      / maxlength: 140 also works. (Using inbuilt HTML input validation, without linking to the Tweet model.) (Not sure which is a better method.)
-      div.tweet-button
-        span.word-count 140
-        span.characters &nbsp;characters remaining.
-        = f.button :submit, "Tweet", class: 'btn btn-primary btn-sm'
+    h4.card-header.text-center style="border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem" Write tweet
+    div.new-tweet-form
+      = simple_form_for Tweet.new, url: tweets_path, method: :post, remote: true do |f|
+        = f.input_field :content, label: false, placeholder: "Write your tweet here!", class: 'tweet form-control', maxlength: Tweet:: MAX_WORD_COUNT
+        / maxlength: 140 also works. (Using inbuilt HTML input validation, without linking to the Tweet model.) (Not sure which is a better method.)
+        div.tweet-button
+          span.word-count 140
+          span.characters &nbsp;characters remaining.
+          = f.button :submit, "Tweet", class: 'btn btn-primary btn-sm'
 
 
   div.card

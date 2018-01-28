@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # =============================================== Accounts ================================================================
-default_user = User.create(username: 'Default User', email: 'defaultuser@example.com', password: 'password', password_confirmation: 'password')
+default_user = User.create(username: 'Default User', email: 'defaultuser@gmail.com', password: 'defaultuser', password_confirmation: 'defaultuser')
+default_user_2 = User.create(username: 'Default User 2', email: 'defaultuser2@example.com', password: 'password', password_confirmation: 'password')
 
 # Dragonball Characters
 user_0 = User.create(username: 'Goku', email: 'goku@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Main protagonist of Dragon Ball Z" , quote: "I am a Saiyan who was raised on Planet Earth and in the name of every single Saiyan that you've made suffer, for them and all the people of Planet Namek too, I will defeat you!", avatar: 'https://cdn.filestackcontent.com/mZVV2uNCQQ2RALyOoEBP')
@@ -28,9 +29,14 @@ user_7 = User.create(username: 'Trunks' , email: 'trunks@example.com', password:
 
 user_8 = User.create(username: 'Android 19' , email: 'andriod19@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Andriod", biography: " Nineteenth android creation of an evil scientist", quote: "Do not try to escape. Yes, it is useless. Until I have all your energy, I will never let you go.", avatar: 'https://cdn.filestackcontent.com/DQPXEYPPRy2Cr9ojirsI')
 
+# =================================================== Note =================================================================
+=begin
+If you receive the error
 
+    "rake aborted! ActiveRecord::RecordNotSaved: You cannot call create unless the parent is saved"
 
-
+when running rake db:seed, it is most likely because the record isn't created due to VALIDATIONS in your MODEL(S). Example, TWEET MODEL has a validation of "validates: length: { maximum: 140 }" which prevented the tweet from being created because it exceeded the maximum length.
+=end
 
 # # ============================================== Tweets & Tags ===========================================================
 # Goku

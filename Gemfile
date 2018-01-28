@@ -67,26 +67,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-# Flexible authentication solution for Rails with Warden.
-# gem 'filestack-rails', '~> 3.1.0'
-# gem 'kaminari'
-
-# gem 'rubocop'
-# gem 'rubocop-rspec'
-# gem 'simple_form'
 
 gem 'devise'
-gem 'faker'
 gem 'slim-rails'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'omniauth-facebook'
-
 # Filestack (Rails 5.2 has "Content Security Policy". Go to config/initializers/content_security_policy.rb and comment out all the code there or else Filestack picker won't load!)
 gem 'filestack-rails', '~> 3.1.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'pg_search'
-
-
-# gem "paperclip", "~> 5.0.0"
