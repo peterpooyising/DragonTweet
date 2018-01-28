@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   # Sign out page
   get '/signout', to: 'pages#signout', as: 'user_signout'
-  get '/tutorial', to: 'pages#tutorial', as: 'tutorial'
 
   get '/user/:username/followings', to: 'pages#followings', as: 'user_followings'
   get '/user/:username/followers', to: 'pages#followers', as: 'user_followers'

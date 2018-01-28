@@ -31,7 +31,29 @@
 
 .btn.unfollow
   border: none
+  top: 0
+  left: 0
 
 .btn.unfollow:hover, .btn.unfollow:focus
   background-color: crimson !important
   border: none !important
+
+@media screen and (max-width: 1000px) and (min-width: 700px)
+  .tweet-delete
+    display: unset !important
+    position: static !important
+  .deletebtn
+    position: absolute
+    right: 10% !important
+
+@media screen and (max-width: 1300px) and (min-width: 1000px)
+  .tweet-delete
+    display: unset !important
+    position: static !important
+  .deletebtn
+    position: absolute
+    right: 10% !important
+
+@media screen and (min-width: 1300px)
+  .deletebtn
+    right: 25% !important

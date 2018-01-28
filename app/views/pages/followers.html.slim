@@ -2,13 +2,15 @@
   = render partial: "pages/partials/profile", locals: {user: @user}
 
 - content_for :content do
-  - if @followers.empty?
-    p.medium style="padding-top: 2em; padding-left: 2em; font-style: italic" No followers found.
+  div.card
+    h4.card-header.text-center Followers
+    - if @followers.empty?
+      p.medium style="padding-top: 2em; padding-left: 2em; font-style: italic" No followers found.
 
-  / ============================================ Pagination ============================================================
-  / = link_to_next_page @tweets, 'Next', remote: true, id: 'next-page-link', hidden: true
+    / ============================================ Pagination ============================================================
+    / = link_to_next_page @tweets, 'Next', remote: true, id: 'next-page-link', hidden: true
 
-  / =========================================== List of Followers =====================================================
-  ul.followers.list-group
-    - @followers.each do |user|
-      = render partial: "pages/partials/user", locals: {user: user}
+    / =========================================== List of Followers =====================================================
+    ul.followers.list-group
+      - @followers.each do |user|
+        = render partial: "pages/partials/user", locals: {user: user}

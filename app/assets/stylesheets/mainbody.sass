@@ -6,6 +6,22 @@
     margin: 0
   .left-panel, .content, .right-panel
     flex-basis: 33.33%
+  .tweet-avatar.tweets
+    display: block
+    margin: 0 auto
+  .tweet-avatar.who-to-follow
+    width: 70px
+    height: 70px
+  .followings.list-group
+    a
+      height: 70px
+    .user-unfollow
+      height: unset
+  .followers.list-group
+    a
+      height: 70px
+    .user-follow
+      height: unset
 
 @media screen and (max-width: 1300px) and (min-width: 1000px)
   .mainbody
@@ -17,6 +33,24 @@
     flex-basis: 33.33%
   .label
     font-size: 1.5em
+  .tweet-avatar.tweets
+    display: block
+    margin: 0 auto
+    width: 125px
+  .tweet-avatar.who-to-follow
+    width: 100px
+    height: 100px
+  .followings.list-group
+    a
+      height: 100px
+    .user-unfollow
+      height: unset
+  .followers.list-group
+    a
+      height: 100px
+    .user-follow
+      height: unset
+
 
 @media screen and (min-width: 1300px)
   .mainbody
