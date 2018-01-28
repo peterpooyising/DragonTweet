@@ -20,7 +20,7 @@ class Tweet < ApplicationRecord
   pg_search_scope :search,
                   against: :content,
                   using: { trigram: { threshold: 0.03 } }
-                  
+
   # ======================================= Helper Methods ============================================================
   # Return all tags in tweet in array format
   def scan_tags
@@ -45,10 +45,8 @@ class Tweet < ApplicationRecord
       else
         self.tags.create(name: tag) # tag here refers to "#<tag>"(words) as written in the tweet itself. NOT the ID(integer) of the tag.
       end
-      return self   # return the tweet so we can continue do things with the tweet itself.
     end
-
-
+    return self   # return the tweet so we can continue do things with the tweet itself.
   end
 
 

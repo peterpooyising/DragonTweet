@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2018_01_21_102822) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "avatar"
     t.string "jobtitle", default: "Job Title"
