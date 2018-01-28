@@ -17,9 +17,9 @@ div.list-group-item
     div.tweet-delete
       - if tweet.user == current_user
         = content_tag :object do
-          = link_to image_tag('x_rounded.svg', size: '15'), tweet_path(tweet), method: :delete, data: {confirm: 'Are you sure you want to delete this tweet?'}, class: "deletebtn"
+          = link_to image_tag('x_rounded.svg'), tweet_path(tweet), method: :delete, data: {confirm: 'Are you sure you want to delete this tweet?'}, class: "deletebtn"
   - else
     div.tweet-delete-btn-noavatar
       - if tweet.user == current_user
         = content_tag :object do
-          = link_to image_tag('x_rounded.svg', size: '15'), tweet_path(tweet), method: :delete, data: {confirm: 'Are you sure you want to delete this tweet?'}, class: "tweet-delete-btn-noavatar"
+          = link_to image_tag('x_rounded.svg'), tweet_path(tweet), method: :delete, data: {confirm: 'Are you sure you want to delete this tweet?'}, class: "tweet-delete-btn-noavatar"
