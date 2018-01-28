@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # =============================================== Accounts ================================================================
-default_user = User.create(username: 'Default User', email: 'defaultuser@example.com', password: 'password', password_confirmation: 'password')
+default_user = User.create(username: 'Default User', email: 'defaultuser@gmail.com', password: 'default', password_confirmation: 'default')
 
 # Dragonball Characters
-user_0 = User.create(username: 'Goku', email: 'goku@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Main protagonist of Dragon Ball Z" , quote: "I am a Saiyan who was raised on Planet Earth and in the name of every single Saiyan that you've made suffer, for them and all the people of Planet Namek too, I will defeat you!", avatar: 'https://cdn.filestackcontent.com/mZVV2uNCQQ2RALyOoEBP')
+user_0 = User.create(username: 'Goku', email: 'goku@gmail.com', password: 'goku', password_confirmation: 'goku', jobtitle: "Z-Fighter", biography: "Main protagonist of Dragon Ball Z" , quote: "I am a Saiyan who was raised on Planet Earth and in the name of every single Saiyan that you've made suffer, for them and all the people of Planet Namek too, I will defeat you!", avatar: 'https://cdn.filestackcontent.com/mZVV2uNCQQ2RALyOoEBP')
 
 user_1 = User.create(username: 'Vegeta', email: 'vegeta@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Saiyan Prince", biography: "Deuteragonist of Dragon Ball Z", quote: "There's no such thing as fair or unfair in battle. There is only victory, or in your case, defeat.", avatar: 'https://cdn.filestackcontent.com/Dcu0rnITIOjdWJRcxdNw')
 

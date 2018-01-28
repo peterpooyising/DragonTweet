@@ -5,7 +5,7 @@
     img src="#{user.avatar}" class="tweet-avatar who-to-follow"
     span.user-username = user.username
   - else
-    img src="#{user.avatar}" class="tweet-avatar who-to-follow"
+    div class="who-to-follow" style="width: 100px; height: 100px"
     span.user-username = user.username
 
   - if user == current_user
