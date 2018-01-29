@@ -2,9 +2,13 @@ div.card
   / Filestack (Rails 5.2 has "Content Security Policy". Go to config/initializers/content_security_policy.rb and comment out all the code there or else Filestack picker won't load!)
   / Note the way to dynamically render background images from database using SLIM below!
   div.card-header.profile style="background-image: url(#{user.avatar})"
-    - if user.avatar.present? == false
+    - if user.avatar.present? == false && user == current_user
       div.changeavatar-title
         p Click here to change avatar <br> (Please wait for the image uploader to load as I'm using a free plan)
+    - elsif user.avatar.present? == false
+      div.changeavatar-title
+        - if user == current_user
+          p Click here to change avatar <br> (Please wait for the image uploader to load as I'm using a free plan)
     - if user == current_user
       = filestack_picker_element 'Change avatar', 'updateAvatar', class: 'btn filestack-btn', pickerOptions: { accept: 'image/*', uploadInBackground: false }
   div.card-body
