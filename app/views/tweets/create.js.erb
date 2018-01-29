@@ -1,0 +1,17 @@
+// Not sure if this is necessary still in Rails 5.2, because it seems to work fine without setting AJAX (but just for backup)
+
+// Add tweet
+$('.tweets').prepend(function() {
+  return "<%= j render partial: 'tweets/tweets', locals: {tweet: @tweet} %>";
+});
+
+// Refreshing trends
+$('.trending').html("<%= j render 'pages/partials/trends' %>");
+
+// Refreshing tweets count in profile card
+$('#tweets-count').text("<%= @user.tweets.count %>");
+
+// Reset form
+$('.new-tweet-form form')[0].reset();
+$('.new-tweet-form .btn').removeAttr('data-disable-with').attr('disabled', true);
+$('.word-count').text("<%= Tweet::MAX_WORD_COUNT %>");

@@ -1,0 +1,7 @@
+// Not sure if this is necessary still in Rails 5.2, because it seems to work fine without setting AJAX (but just for backup)
+
+// Append tweets
+<% @tweets.each do |tweet| %>
+$('.tweets').append("<%= j render partial: 'tweets/tweets', locals: {tweet: tweet} %>");
+<% end %>
+// console.log("Tweets added");

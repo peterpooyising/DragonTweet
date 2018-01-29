@@ -4,6 +4,9 @@ class TweetsController < ApplicationController
     @user = current_user
     @tweet = @user.tweets.build(tweet_params)
     @tweet.save_with_tags
+    respond_to do |format|
+      format.js
+    end
     flash[:notice] = 'Tweet created!'
     redirect_to authenticated_root_path
   end

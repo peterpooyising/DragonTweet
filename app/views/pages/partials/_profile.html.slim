@@ -42,6 +42,6 @@ div.card
           span.label Followings
           span.value = user.followees.count
       div.stat.tweets
-        = link_to user_tweets_path(user.username), class: "stat-link"
+        = link_to user_tweets_path(user.username), class: "stat-link", id: "tweets-count"
           span.label Tweets
           span.value = user.tweets.count

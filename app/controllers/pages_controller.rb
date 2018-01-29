@@ -10,6 +10,10 @@ class PagesController < ApplicationController
   # This is the current_user HOME page. It will show the tweets of the all the users that current_user follow as well as his own tweet.
   def home
     @tweets = @user.feed.paginate(:page => params[:page], :per_page => 5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # This is the page of all other USER. It will show the tweets of the particular user that current_user clicked on only.
