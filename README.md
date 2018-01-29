@@ -1,24 +1,7 @@
-# README
+# DragonTweet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<strong>My own version of popular social media app Twitter with a theme modelled after the anime "Dragon Ball Z".</strong>
 
 Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app is a clone of Twitter using Ruby on Rails. While the idea is not original, I learnt a lot from building this app - from the basics of Rails framework to more advanced concepts like search function, hashtag functionality etc. I am a fan of the anime "Dragon Ball Z", so I decided to design my app based on characters from the anime.
