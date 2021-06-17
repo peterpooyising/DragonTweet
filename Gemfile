@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # ========================================= Old ruby version used originally for this app ============================================
 # ruby '2.4.2'
-ruby '2.4.1'
+ruby '2.4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0.beta2'
@@ -85,4 +85,3 @@ gem 'pg_search'
 # ======================================== Final Changes =============================================
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'nokogiri', '~> 1.8.1'
-gem 'nio4r', '~> 2.2.0'
