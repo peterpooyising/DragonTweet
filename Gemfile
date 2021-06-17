@@ -78,3 +78,7 @@ gem 'omniauth-facebook'
 gem 'filestack-rails', '~> 3.1.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'pg_search'
+
+
+# ======================================== Final Changes =============================================
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
