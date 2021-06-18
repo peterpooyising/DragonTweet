@@ -28,7 +28,7 @@ default: &default
 
 development:
   <<: *default
-  database: dragontweet_development
+  database: Dragontweet_development
 
   host: localhost
   password: pepper123
@@ -67,7 +67,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: dragontweet_test
+  database: Dragontweet_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -92,4 +92,4 @@ production:
   <<: *default
   database: <%= ENV ['DATABASE_URL'] %>
   username: thawing-everglades-69921
-  password: <%= ENV['DRAGONTWEET_DATABASE_PASSWORD'] %>
+  password: <%= ENV['THAWING-EVERGLADES-69921_DATABASE_PASSWORD'] %>
