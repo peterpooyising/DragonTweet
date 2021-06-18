@@ -92,4 +92,5 @@ production:
   <<: *default
   database: <%= ENV ['DATABASE_URL'] %>
   username: thawing-everglades-69921
-  password: <%= ENV['THAWING-EVERGLADES-69921_DATABASE_PASSWORD'] %>
+  # password: <%= ENV['THAWING-EVERGLADES-69921_DATABASE_PASSWORD'] %>
+  password: pepper123
