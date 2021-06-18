@@ -6,7 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0.beta2'
+gem 'rails', '~> 5.2.0'
+# gem 'rails', '~> 5.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -69,19 +70,21 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-
 gem 'devise'
-gem 'slim-rails'
+
+# gem 'devise', '~> 4.3.0'
+gem 'slim-rails', '~> 3.1.3'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 4.0.0'
 # Filestack (Rails 5.2 has "Content Security Policy". Go to config/initializers/content_security_policy.rb and comment out all the code there or else Filestack picker won't load!)
 gem 'filestack-rails', '~> 3.1.0'
 gem 'will_paginate', '~> 3.1.0'
-gem 'pg_search'
+gem 'pg_search', '~> 2.1.1'
 
 
 # ======================================== Final Changes =============================================
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'nokogiri', '~> 1.8.1'
+gem 'sprockets', '~> 3.7.2'

@@ -6,5 +6,6 @@ Android 18: 	https://cdn.filestackcontent.com/Ok9qhlsMQQakyHO9LXLL
 Cell: 		https://cdn.filestackcontent.com/SOwcRbSOmXeOS5DIBsHg
 Frieza: 		https://cdn.filestackcontent.com/XdO4QamvTHS8qq63yZIZ
 Vegeta:		https://cdn.filestackcontent.com/1ucFeBzCRJm9I5YH1u2d
+Vegeta: https://cdn.filestackcontent.com/OhuWtX6YQVapaKtT4awC
 Goku:		https://cdn.filestackcontent.com/emTg312nQSutdAh8pRQu
 Android 19	https://cdn.filestackcontent.com/XK5EopFNRaWtv7D0FLSQ

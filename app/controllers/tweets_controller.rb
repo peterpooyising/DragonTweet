@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   def create
-    @user = current_user
+    # @user = current_user
     @tweet = @user.tweets.build(tweet_params)
     @tweet.save_with_tags
     respond_to do |format|

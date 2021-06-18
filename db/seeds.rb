@@ -13,7 +13,7 @@ default_user_2 = User.create(username: 'Default User 2', email: 'defaultuser2@ex
 # Dragonball Characters
  user_0 = User.create(username: 'Goku', email: 'goku@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Z-Fighter", biography: "Main protagonist of Dragon Ball Z" , quote: "I am a Saiyan who was raised on Planet Earth and in the name of every single Saiyan that you've made suffer, for them and all the people of Planet Namek too, I will defeat you!", avatar: 'https://cdn.filestackcontent.com/emTg312nQSutdAh8pRQu')
 
- user_1 = User.create(username: 'Vegeta', email: 'vegeta@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Saiyan Prince", biography: "Deuteragonist of Dragon Ball Z", quote: "There's no such thing as fair or unfair in battle. There is only victory, or in your case, defeat.", avatar: 'https://cdn.filestackcontent.com/1ucFeBzCRJm9I5YH1u2d')
+ user_1 = User.create(username: 'Vegeta', email: 'vegeta@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Saiyan Prince", biography: "Deuteragonist of Dragon Ball Z", quote: "There's no such thing as fair or unfair in battle. There is only victory, or in your case, defeat.", avatar: 'https://cdn.filestackcontent.com/OhuWtX6YQVapaKtT4awC')
 
  user_2 = User.create(username: 'Frieza' , email: 'frieza@example.com', password: 'password', password_confirmation: 'password', jobtitle: "Emperor", biography: "Emperor of Universe 7", quote: "I doubt I need an introduction, but just in case, I am the mighty Frieza, and yes, all the horrible stories you've heard are true.", avatar: 'https://cdn.filestackcontent.com/XdO4QamvTHS8qq63yZIZ')
 
