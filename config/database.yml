@@ -91,5 +91,5 @@ test:
 production:
   <<: *default
   database: <%= ENV ['DATABASE_URL'] %>
-  username: dragontweet
+  username: thawing-everglades-69921
   password: <%= ENV['DRAGONTWEET_DATABASE_PASSWORD'] %>
