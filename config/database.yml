@@ -90,6 +90,6 @@ test:
 #
 production:
   <<: *default
-  database: dragontweet_production
+  database: <%= ENV ['DATABASE_URL'] %>
   username: dragontweet
   password: <%= ENV['DRAGONTWEET_DATABASE_PASSWORD'] %>
